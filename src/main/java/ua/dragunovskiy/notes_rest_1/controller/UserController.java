@@ -4,25 +4,25 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import ua.dragunovskiy.notes_rest_1.dao.UserDaoImpl;
 import ua.dragunovskiy.notes_rest_1.entity.User;
+import ua.dragunovskiy.notes_rest_1.service.UserService;
 
 
 @Controller
 public class UserController {
 
     @Autowired
-    private UserDaoImpl userDao;
+    private UserService<Integer, User> userService;
 
     @GetMapping("/users")
     public String getAllUsers(Model model) {
-        model.addAttribute("allUsers", userDao.getAll());
+        model.addAttribute("allUsers", userService.getAll());
         return "/user/getAllUsers";
     }
 
     @GetMapping("/users/{id}")
     public String getUserById(Model model, @PathVariable("id") int id) {
-        model.addAttribute("user", userDao.getById(id));
+        model.addAttribute("user", userService.getById(id));
         return "/user/getUser";
     }
 
@@ -35,31 +35,31 @@ public class UserController {
 
     @PostMapping("/users/add")
     public String addUser(@ModelAttribute("newUser") User user) {
-        userDao.add(user);
+        userService.add(user);
         return "redirect:/users";
     }
 
     @GetMapping("/users/edit/{id}")
     public String editUser(@PathVariable("id") int id, Model model) {
-        model.addAttribute("editUser", userDao.getById(id));
+        model.addAttribute("editUser", userService.getById(id));
         return "/user/editUser";
     }
 
     @PostMapping("/users/update/{id}")
     public String updateUser(@ModelAttribute("editUser") User user) {
-        userDao.update(user);
+        userService.update(user);
         return "redirect:/users";
     }
 
     @GetMapping("/users/info/{id}")
     public String moreInfo(@PathVariable("id") int id, Model model) {
-        model.addAttribute("userInfo", userDao.getById(id));
+        model.addAttribute("userInfo", userService.getById(id));
         return "/user/infoUser";
     }
 
     @RequestMapping("/users/delete/{id}")
     public String deleteUser(@PathVariable("id") int id) {
-        userDao.deleteById(id);
+        userService.deleteById(id);
         return "redirect:/users";
     }
 }
