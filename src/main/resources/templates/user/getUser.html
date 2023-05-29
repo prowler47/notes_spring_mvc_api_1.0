@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Get user by id</title>
+</head>
+<body>
+<!--/*@thymesVar id="user" type="java"*/-->
+<p th:text="${user.getName()}"></p>
+<table th:each="note : ${user.getNoteList()}">
+    <td th:text="${note.getName()}"></td>
+</table>
+</body>
+</html>

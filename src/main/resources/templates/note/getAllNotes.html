@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Get All notes</title>
+</head>
+<body>
+<!--/*@thymesVar id="allNotes" type="java"*/-->
+<table th:each="note : ${allNotes}">
+    <h3>Notes:</h3>
+    <tr>
+        <td th:text="${note.name}"></td>
+    </tr>
+    <br>
+    <tr>
+        <td th:text="${note.content}"></td>
+    </tr>
+    <br>
+    <tr>
+        <td><a th:href="@{/notes/edit/{userId}/{noteId}(userId=${note.getUser().getId()}, noteId=${note.id})}">Update</a></td>
+    </tr>
+    <br>
+    <tr>
+        <td><a th:href="@{/notes/delete/{userId}/{noteId}(userId=${note.getUser().getId()}, noteId=${note.id})}">Delete</a></td>
+    </tr>
+</table>
+<br><br>
+<!--/*@thymesVar id="user" type="java"*/-->
+<table th:object="${user}">
+    <a th:href="@{/notes/new/{userId}(userId=${user.getId()})}">Add new note</a>
+</table>
+</body>
+</html>

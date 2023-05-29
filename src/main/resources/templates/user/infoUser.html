@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Information about user</title>
+</head>
+<body>
+<table>
+    <!--/*@thymesVar id="userInfo" type="java"*/-->
+    <tr th:object="${userInfo}">
+        <td th:text="${userInfo.name}"></td>
+        <td th:text="${userInfo.surname}"></td>
+        <td>
+            <a th:href="@{/users/delete/{id}(id=${userInfo.getId()})}">Delete</a>
+        </td>
+
+        <br><br>
+
+        <td>
+            <a th:href="@{/users/edit/{id}(id=${userInfo.getId()})}">Update</a>
+        </td>
+        <td><a th:href="@{/notes/{id}(id=${userInfo.getId()})}">Notes</a></td>
+    </tr>
+</table>
+</body>
+</html>
