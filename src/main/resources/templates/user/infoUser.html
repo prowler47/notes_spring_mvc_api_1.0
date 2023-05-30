@@ -3,24 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Information about user</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
 </head>
 <body>
-<table>
+<div class="info-user-container">
+<table th:object="${userInfo}">
+    <h3>User information:</h3>
     <!--/*@thymesVar id="userInfo" type="java"*/-->
-    <tr th:object="${userInfo}">
-        <td th:text="${userInfo.name}"></td>
-        <td th:text="${userInfo.surname}"></td>
-        <td>
-            <a th:href="@{/users/delete/{id}(id=${userInfo.getId()})}">Delete</a>
-        </td>
-
-        <br><br>
-
-        <td>
-            <a th:href="@{/users/edit/{id}(id=${userInfo.getId()})}">Update</a>
-        </td>
+    <tr>
+        <td class="info-user-container-information" th:text="${userInfo.name}">name</td>
+        <td class="info-user-container-information" th:text="${userInfo.surname}">surname</td>
+        <td><a th:href="@{/users/delete/{id}(id=${userInfo.getId()})}">Delete</a></td>
+        <td><a th:href="@{/users/edit/{id}(id=${userInfo.getId()})}">Update</a></td>
         <td><a th:href="@{/notes/{id}(id=${userInfo.getId()})}">Notes</a></td>
     </tr>
 </table>
+    </div>
 </body>
 </html>

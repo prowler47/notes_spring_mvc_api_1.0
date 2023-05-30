@@ -1,4 +1,4 @@
-package ua.dragunovskiy.notes_rest_1.entity;
+package ua.dragunovskiy.notes_mvc_1.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

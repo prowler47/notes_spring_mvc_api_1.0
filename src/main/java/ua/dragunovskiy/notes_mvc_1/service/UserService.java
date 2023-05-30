@@ -1,4 +1,4 @@
-package ua.dragunovskiy.notes_rest_1.service;
+package ua.dragunovskiy.notes_mvc_1.service;
 
 import java.util.List;
 

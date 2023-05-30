@@ -3,12 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Edit user</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
 </head>
 <body>
 <!--/*@thymesVar id="editUser" type="java"*/-->
+<div class="edit-user-container-edit-form">
+    <h3>Edit user:</h3>
 <form th:object="${editUser}" th:action="@{/users/update/{id}(id=${editUser.getId()})}" method="post">
     <input type="hidden" th:field="*{id}" />
-    <div><label for="name">Name:</label>
+    <div>
+        <label for="name">Name:</label>
         <input type="text" id="name" th:field="${editUser.name}" />
     </div>
     <br/>
@@ -18,5 +22,6 @@
     <br/>
     <button type="submit">Update</button>
 </form>
+</div>
 </body>
 </html>

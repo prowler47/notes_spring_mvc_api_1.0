@@ -1,4 +1,4 @@
-package ua.dragunovskiy.notes_rest_1;
+package ua.dragunovskiy.notes_mvc_1;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

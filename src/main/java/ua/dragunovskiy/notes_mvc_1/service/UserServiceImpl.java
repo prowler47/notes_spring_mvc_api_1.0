@@ -1,9 +1,9 @@
-package ua.dragunovskiy.notes_rest_1.service;
+package ua.dragunovskiy.notes_mvc_1.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ua.dragunovskiy.notes_rest_1.dao.UserDaoImpl;
-import ua.dragunovskiy.notes_rest_1.entity.User;
+import ua.dragunovskiy.notes_mvc_1.dao.UserDaoImpl;
+import ua.dragunovskiy.notes_mvc_1.entity.User;
 
 import java.util.List;
 

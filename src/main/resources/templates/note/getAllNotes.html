@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Get All notes</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
 </head>
 <body>
 <!--/*@thymesVar id="allNotes" type="java"*/-->
-<table th:each="note : ${allNotes}">
+<div class="get-all-notes-container">
     <h3>Notes:</h3>
-    <tr>
+    <table th:each="note : ${allNotes}">
+    <tr class="get-all-users-container-name">
         <td th:text="${note.name}"></td>
     </tr>
     <br>
@@ -17,17 +19,18 @@
     </tr>
     <br>
     <tr>
-        <td><a th:href="@{/notes/edit/{userId}/{noteId}(userId=${note.getUser().getId()}, noteId=${note.id})}">Update</a></td>
+        <td><a class="get-all-notes-container-update-note-button" th:href="@{/notes/edit/{userId}/{noteId}(userId=${note.getUser().getId()}, noteId=${note.id})}">Update</a></td>
     </tr>
-    <br>
-    <tr>
-        <td><a th:href="@{/notes/delete/{userId}/{noteId}(userId=${note.getUser().getId()}, noteId=${note.id})}">Delete</a></td>
-    </tr>
-</table>
-<br><br>
+        <br>
+        <tr>
+            <td><a class="get-all-notes-container-delete-note-button" th:href="@{/notes/delete/{userId}/{noteId}(userId=${note.getUser().getId()}, noteId=${note.id})}">Delete</a></td>
+        </tr>
+    </table>
+    <br><br>
 <!--/*@thymesVar id="user" type="java"*/-->
-<table th:object="${user}">
-    <a th:href="@{/notes/new/{userId}(userId=${user.getId()})}">Add new note</a>
+    <table th:object="${user}">
+    <a class="get-all-users-container-add-note-button" th:href="@{/notes/new/{userId}(userId=${user.getId()})}">Add new note</a>
 </table>
+</div>
 </body>
 </html>

@@ -3,20 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Get all users</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
 </head>
 <body>
-<h1>List of all users:</h1>
-<table>
+<div class="get-all-users-container">
+    <h1>List of all users:</h1>
+<table class="table">
 <!--/*@thymesVar id="allUsers" type="java"*/-->
-    <tr th:each="user : ${allUsers}">
+    <tr th:each="user : ${allUsers}" class="user-block">
         <td th:text="${user.name}"></td>
-        <td><a th:href="@{/users/info/{id}(id=${user.getId()})}">More</a></td>
+        <td><a th:href="@{/users/info/{id}(id=${user.getId()})}">More...</a></td>
     </tr>
 </table>
 <br>
 <br>
 <table>
-    <tr><a th:href="@{/users/new}">Add new user</a></tr>
+    <tr><a class="button-add" th:href="@{/users/new}">Add new user</a></tr>
 </table>
+</div>
 </body>
 </html>

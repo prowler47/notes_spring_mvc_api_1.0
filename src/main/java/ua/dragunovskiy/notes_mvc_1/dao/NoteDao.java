@@ -1,4 +1,4 @@
-package ua.dragunovskiy.notes_rest_1.dao;
+package ua.dragunovskiy.notes_mvc_1.dao;
 
 import java.util.List;
 

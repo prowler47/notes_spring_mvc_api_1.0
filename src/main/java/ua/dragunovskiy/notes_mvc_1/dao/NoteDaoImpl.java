@@ -1,4 +1,4 @@
-package ua.dragunovskiy.notes_rest_1.dao;
+package ua.dragunovskiy.notes_mvc_1.dao;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -6,8 +6,8 @@ import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import ua.dragunovskiy.notes_rest_1.entity.Note;
-import ua.dragunovskiy.notes_rest_1.entity.User;
+import ua.dragunovskiy.notes_mvc_1.entity.Note;
+import ua.dragunovskiy.notes_mvc_1.entity.User;
 
 import java.util.List;
 
