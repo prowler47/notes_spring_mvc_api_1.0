@@ -22,6 +22,7 @@
         <textarea  class="edit-note-container-content" id="content" th:field="*{content}"></textarea>
     </div>
     <button  class="edit-note-container-button" type="submit">Update</button>
+    <a class="edit-note-container-get-all-notes-button" th:href="@{/notes/{id}(id=${noteToUpdate.getUser().getId()})}">All notes</a>
 </form>
 </div>
 

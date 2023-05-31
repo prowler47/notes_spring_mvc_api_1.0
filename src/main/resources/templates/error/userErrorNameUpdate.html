@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Error name</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+<div class="error-container">
+<h3>Wrong enter field name. Please, try again</h3>
+<!--/*@thymesVar id="editUser" type="java"*/-->
+<p th:object="${editUser}">
+    <a class="error-button" th:href="@{/users/edit/{id}(id=${editUser.id})}">Return</a>
+</p>
+</div>
+</body>
+</html>

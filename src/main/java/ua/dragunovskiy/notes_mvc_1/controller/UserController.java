@@ -1,8 +1,10 @@
 package ua.dragunovskiy.notes_mvc_1.controller;
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ua.dragunovskiy.notes_mvc_1.entity.User;
 import ua.dragunovskiy.notes_mvc_1.service.UserService;
@@ -34,7 +36,12 @@ public class UserController {
     }
 
     @PostMapping("/users/add")
-    public String addUser(@ModelAttribute("newUser") User user) {
+    public String addUser(@Valid @ModelAttribute("newUser") User user, BindingResult bindingResult) {
+        if (bindingResult.hasFieldErrors("name")) {
+            return "/error/userErrorName";
+        } else if (bindingResult.hasFieldErrors("surname")) {
+            return "/error/userErrorSurname";
+        }
         userService.add(user);
         return "redirect:/users";
     }
@@ -46,7 +53,12 @@ public class UserController {
     }
 
     @PostMapping("/users/update/{id}")
-    public String updateUser(@ModelAttribute("editUser") User user) {
+    public String updateUser(@Valid @ModelAttribute("editUser") User user, BindingResult bindingResult) {
+        if (bindingResult.hasFieldErrors("name")) {
+            return "/error/userErrorNameUpdate";
+        } else if (bindingResult.hasFieldErrors("surname")) {
+            return "/error/userErrorSurnameUpdate";
+        }
         userService.update(user);
         return "redirect:/users";
     }

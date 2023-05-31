@@ -2,6 +2,8 @@ package ua.dragunovskiy.notes_mvc_1.entity;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,9 +25,12 @@ public class User {
     private int id;
 
     @Column(name = "name")
+    @NotBlank
+    @Size(max = 50)
     private String name;
 
     @Column(name = "surname")
+    @NotBlank
     private String surname;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)

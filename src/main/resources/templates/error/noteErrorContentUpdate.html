@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Error content</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+<div class="error-container">
+<h3>Content must be not empty. Please, try again</h3>
+
+<!--/*@thymesVar id="noteToUpdate" type="java"*/-->
+<p th:object="${noteToUpdate}">
+    <a class="error-button" th:href="@{/notes/edit/{userId}/{noteId}(userId=${noteToUpdate.getUser().getId()}, noteId=${noteToUpdate.getId()})}">Return</a>
+</p>
+</div>
+</body>
+</html>

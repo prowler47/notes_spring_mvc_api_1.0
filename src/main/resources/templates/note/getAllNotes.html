@@ -29,7 +29,8 @@
     <br><br>
 <!--/*@thymesVar id="user" type="java"*/-->
     <table th:object="${user}">
-    <a class="get-all-users-container-add-note-button" th:href="@{/notes/new/{userId}(userId=${user.getId()})}">Add new note</a>
+        <td><a class="get-all-users-container-add-note-button" th:href="@{/notes/new/{userId}(userId=${user.getId()})}">Add new note</a></td>
+        <td><a class="get-all-users-container-get-all-users-button" href="/users">All users</a></td>
 </table>
 </div>
 </body>

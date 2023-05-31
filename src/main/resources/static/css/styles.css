@@ -182,6 +182,18 @@ html  {
     margin-bottom: 20px;
 }
 
+.get-all-users-container-get-all-users-button {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #336dea;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 3px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
 .get-all-notes-container-update-note-button {
     display: inline-block;
     padding: 5px 10px;
@@ -282,4 +294,84 @@ html  {
     font-size: 14px;
     margin-top: 20px;
     margin-bottom: 10px;
+}
+
+.edit-note-container-get-all-users-button {
+    display: inline-block;
+    padding: 6px 14px;
+    background-color: #336dea;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    font-size: 14px;
+    margin-bottom: 20px;
+    text-align: right;
+}
+
+.add-user-container-get-all-users-button {
+    display: inline-block;
+    padding: 6px 14px;
+    background-color: #336dea;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    font-size: 14px;
+    margin-bottom: 20px;
+    text-align: right;
+}
+
+.error-container {
+    display: flex;
+    justify-content: normal;
+    align-items: center;
+    background-color: rgba(255, 183, 0, 0.99);
+    flex-direction: column;
+    height: 600px;
+    width: 70%;
+    margin: 0 auto;
+    color: #333131;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    text-align: left;
+}
+
+.error-button {
+    display: inline-block;
+    padding: 6px 14px;
+    background-color: #336dea;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    font-size: 14px;
+    margin-bottom: 20px;
+    text-align: right;
+}
+
+.edit-note-container-get-all-notes-button {
+    display: inline-block;
+    padding: 6px 14px;
+    background-color: #336dea;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    font-size: 14px;
+    margin-bottom: 20px;
+    text-align: right;
+}
+
+.add-note-container-get-all-users-button {
+    display: inline-block;
+    padding: 5px 16px;
+    background-color: #336dea;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    font-size: 15px;
+    margin-bottom: 20px;
+    text-align: right;
 }

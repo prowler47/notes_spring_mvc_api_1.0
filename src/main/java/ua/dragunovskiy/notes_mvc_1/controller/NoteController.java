@@ -1,8 +1,10 @@
 package ua.dragunovskiy.notes_mvc_1.controller;
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ua.dragunovskiy.notes_mvc_1.entity.Note;
 import ua.dragunovskiy.notes_mvc_1.entity.User;
@@ -37,10 +39,15 @@ public class NoteController {
     }
 
     @PostMapping("/notes/add/{id}")
-    public String addNote(@PathVariable("id") int id, @ModelAttribute("newNote") Note note) {
+    public String addNote(@PathVariable("id") int id, @Valid @ModelAttribute("newNote") Note note, BindingResult bindingResult) {
         User user = userService.getById(id);
         if (user != null) {
             note.setUser(user);
+            if (bindingResult.hasFieldErrors("name")) {
+                return "/error/noteErrorName";
+            } else if (bindingResult.hasFieldErrors("content")) {
+                return "/error/noteErrorContent";
+            }
             user.getNoteList().add(note);
             userService.add(user);
         }
@@ -63,14 +70,20 @@ public class NoteController {
     }
 
     @PostMapping("/notes/update/{userId}/{noteId}")
-    public String updateNote(@PathVariable("userId") int userId, @PathVariable("noteId") int noteId, @ModelAttribute("noteToUpdate") Note updatedNote) {
+    public String updateNote(@PathVariable("userId") int userId, @PathVariable("noteId") int noteId, @Valid @ModelAttribute("noteToUpdate") Note noteToUpdate, BindingResult bindingResult) {
         User user = userService.getById(userId);
         if (user != null) {
             List<Note> noteList = user.getNoteList();
-            Note noteToUpdate = noteService.findNoteById(noteList, noteId);
-            if (noteToUpdate != null) {
-                noteToUpdate.setName(updatedNote.getName());
-                noteToUpdate.setContent(updatedNote.getContent());
+            noteToUpdate.setUser(user);
+            Note updatedNote = noteService.findNoteById(noteList, noteId);
+            if (updatedNote != null) {
+                if (bindingResult.hasFieldErrors("name")) {
+                    return "/error/noteErrorNameUpdate";
+                } else if (bindingResult.hasFieldErrors("content")) {
+                    return "/error/noteErrorContentUpdate";
+                }
+                updatedNote.setName(noteToUpdate.getName());
+                updatedNote.setContent(noteToUpdate.getContent());
                 userService.update(user);
             }
         }
